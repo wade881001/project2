@@ -2,7 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
+    <head>
+    <title>產品管理系統</title>
+</head>
  <div class="main-panel">
 			<div class="content">
 				<div class="page-inner">
@@ -11,7 +13,7 @@
 						</h4>
 						<ul class="breadcrumbs">
 							<li class="nav-home">
-								<a href="#">
+								<a href="MainPage.aspx">
 									<i class="flaticon-home"></i>
 								</a>
 							</li>
@@ -25,7 +27,7 @@
 								<i class="flaticon-right-arrow"></i>
 							</li>
 							<li class="nav-item">
-								<a href="#">產品管理系統</a>
+								<a href="Product.aspx">產品管理系統</a>
 							</li>
 						</ul>
 					</div>

@@ -12,12 +12,15 @@ namespace _0225
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session["Login"] = null;
+            Session["Name"] = null;
+            Session["Authority"] = null;
+            Session["Position"] = null;
         }
         protected void Iscorrect_Click(object sender, EventArgs e)
         {
          
-              SqlConnection Conn = new SqlConnection("Data Source=LAPTOP-MVSLPF8J\\SQLEXPRESS;Initial Catalog=test;user id=sa;password=26428548");
+              SqlConnection Conn = new SqlConnection("Data Source=LAPTOP-MVSLPF8J\\SQLEXPRESS;Initial Catalog=test;user id=sa2;password=wade881001");
             Conn.Open();
             SqlDataReader dr = null;
             SqlCommand cmd = new SqlCommand("Select * From dbo.Employee Where [account]=@acc  and [password]=@pwd ", Conn);
@@ -37,7 +40,11 @@ namespace _0225
                 Session["Name"] = dr["name"].ToString();
                 Session["Authority"] = dr["authority"].ToString();
                 Session["Position"] = dr["position"].ToString();
-                Page.ClientScript.RegisterStartupScript(Page.GetType(), "message", "<script language='javascript' defer>alert('登入成功!');window.location='Employee.aspx'</script>");
+                cmd.Cancel();
+                dr.Close();
+                Conn.Close();
+                Conn.Dispose();
+                Page.ClientScript.RegisterStartupScript(Page.GetType(), "message", "<script language='javascript' defer>alert('登入成功!');window.location='MainPage.aspx'</script>");
             }
         }
     }

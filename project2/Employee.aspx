@@ -1,9 +1,11 @@
-﻿<%@ Page Title="人員管理系統" Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="Employee.aspx.cs" Inherits="_0225.Employee" %>
+﻿<%@ Page title="人員管理系統" Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="Employee.aspx.cs" Inherits="_0225.Employee" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div runat="server" visible="true" id="initial">
-
+<head>
+    <title>人員管理系統</title>
+</head>
  <div class="main-panel">
 			<div class="content">
 				<div class="page-inner">
@@ -11,7 +13,7 @@
 						<h4 class="page-title">爭鮮配送系統</h4>
 						<ul class="breadcrumbs">
 							<li class="nav-home">
-								<a href="#">
+								<a href="MainPage.aspx">
 									<i class="flaticon-home"></i>
 								</a>
 							</li>
@@ -25,7 +27,7 @@
 								<i class="flaticon-right-arrow"></i>
 							</li>
 							<li class="nav-item">
-								<a href="#">人員管理系統</a>
+								<a href="Employee.aspx">人員管理系統</a>
 							</li>
 						</ul>
 					</div>
@@ -51,7 +53,7 @@
 									<!-- Modal -->
 									
                                         <div class="table-responsive">
-					<asp:GridView ID="GridView1" class="display table table-striped table-hover" runat="server"  AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="memid" PageSize="3" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" 
+					<asp:GridView ID="GridView1"  runat="server"  AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="memid" PageSize="3" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" 
         CssClass="display table table-striped table-hover">
         <AlternatingRowStyle Width="600px" Wrap="False" />
         <Columns>
@@ -179,8 +181,7 @@
                         </div>
                     </div>
 					</div>
-				</div>
-	 </div>
+        </div>
     <!--   Core JS Files   -->
 	<script src="../../assets/js/core/jquery.3.2.1.min.js"></script>
 	<script src="../../assets/js/core/popper.min.js"></script>
@@ -232,7 +233,7 @@
                 "pageLength": 5,
             });
 
-            var action = '<td> <div class="form-button-action"> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task"> <i class="fa fa-edit"></i> </button> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove"> <i class="fa fa-times"></i> </button> </div> </td>';
+            var action = '<td> <div class="form-button-action"> <button type="button" data-toggle="tooltip"  class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task"> <i class="fa fa-edit"></i> </button> <button type="button" data-toggle="tooltip" class="btn btn-link btn-danger" data-original-title="Remove"> <i class="fa fa-times"></i> </button> </div> </td>';
 
             $('#addRowButton').click(function () {
                 $('#add-row').dataTable().fnAddData([

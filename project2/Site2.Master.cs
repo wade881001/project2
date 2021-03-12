@@ -25,7 +25,8 @@ namespace _0225
         {
             Session["Login"] = null;
             Session["Name"] = null;
-            Response.Redirect("login.aspx");
+            Session["Authority"] = null;
+            Response.Redirect("Login.aspx");
         }
 
     }

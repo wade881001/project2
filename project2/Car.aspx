@@ -10,7 +10,7 @@
 						</h4>
 						<ul class="breadcrumbs">
 							<li class="nav-home">
-								<a href="#">
+								<a href="MainPage.aspx">
 									<i class="flaticon-home"></i>
 								</a>
 							</li>
@@ -24,7 +24,7 @@
 								<i class="flaticon-right-arrow"></i>
 							</li>
 							<li class="nav-item">
-								<a href="">車輛管理系統</a>
+								<a href="Car.aspx">車輛管理系統</a>
 							</li>
 						</ul>
 					</div>
