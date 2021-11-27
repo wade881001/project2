@@ -62,6 +62,8 @@
     <Reference Include="NPOI.OpenXmlFormats, Version=2.5.2.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
       <HintPath>..\packages\NPOI.2.5.2\lib\net45\NPOI.OpenXmlFormats.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Web.DataVisualization.Design" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -72,6 +74,8 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Windows.Forms.DataVisualization.Design" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -472,6 +476,7 @@
     <Content Include="bin\roslyn\vbc.exe" />
     <Content Include="bin\roslyn\VBCSCompiler.exe" />
     <Content Include="Car.aspx" />
+    <Content Include="CarDistribute.aspx" />
     <Content Include="charts\charts.html" />
     <Content Include="charts\sparkline.html" />
     <Content Include="components\avatars.html" />
@@ -524,24 +529,31 @@
     <Content Include="documentation\plugins\switch.html" />
     <Content Include="Employee.aspx" />
     <Content Include="forms\forms.html" />
+    <Content Include="HistoricalOrder.aspx" />
     <Content Include="Import.aspx" />
     <Content Include="index.html" />
     <Content Include="Login.aspx" />
     <Content Include="LogisticBox.aspx" />
     <Content Include="MainPage.aspx" />
+    <Content Include="Maintain.aspx" />
+    <Content Include="map1.aspx" />
     <Content Include="maps\fullscreenmaps.html" />
     <Content Include="maps\googlemaps.html" />
     <Content Include="maps\jqvmap.html" />
     <Content Include="messages.html" />
     <Content Include="Product.aspx" />
     <Content Include="projects.html" />
+    <Content Include="Report.aspx" />
+    <Content Include="ShowMap.aspx" />
     <Content Include="starter-template.html" />
     <Content Include="Store.aspx" />
     <Content Include="tables\datatables.html" />
     <Content Include="tables\tables.html" />
+    <Content Include="TodayOrder.aspx" />
     <Content Include="userprofile.html" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
+    <Content Include="AlgorithmResult.aspx" />
     <Content Include="WebForm5.aspx" />
     <Content Include="widgets.html" />
   </ItemGroup>
@@ -553,12 +565,32 @@
     <Compile Include="Car.aspx.designer.cs">
       <DependentUpon>Car.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CarDistribute.aspx.cs">
+      <DependentUpon>CarDistribute.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CarDistribute.aspx.designer.cs">
+      <DependentUpon>CarDistribute.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Employee.aspx.cs">
       <DependentUpon>Employee.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Employee.aspx.designer.cs">
       <DependentUpon>Employee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GoogleMapHandler.ashx.cs">
+      <DependentUpon>GoogleMapHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="GoogleMapHandler2.ashx.cs">
+      <DependentUpon>GoogleMapHandler2.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="HistoricalOrder.aspx.cs">
+      <DependentUpon>HistoricalOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HistoricalOrder.aspx.designer.cs">
+      <DependentUpon>HistoricalOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="Import.aspx.cs">
       <DependentUpon>Import.aspx</DependentUpon>
@@ -588,6 +620,20 @@
     <Compile Include="MainPage.aspx.designer.cs">
       <DependentUpon>MainPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Maintain.aspx.cs">
+      <DependentUpon>Maintain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Maintain.aspx.designer.cs">
+      <DependentUpon>Maintain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="map1.aspx.cs">
+      <DependentUpon>map1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="map1.aspx.designer.cs">
+      <DependentUpon>map1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Product.aspx.cs">
       <DependentUpon>Product.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -596,6 +642,20 @@
       <DependentUpon>Product.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report.aspx.cs">
+      <DependentUpon>Report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report.aspx.designer.cs">
+      <DependentUpon>Report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShowMap.aspx.cs">
+      <DependentUpon>ShowMap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShowMap.aspx.designer.cs">
+      <DependentUpon>ShowMap.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -624,12 +684,28 @@
     <Compile Include="Store.aspx.designer.cs">
       <DependentUpon>Store.aspx</DependentUpon>
     </Compile>
+    <Compile Include="System\Web\UI\DataVisualization.cs" />
+    <Compile Include="System\Web\UI\WebControls\Chart.cs" />
+    <Compile Include="TodayOrder.aspx.cs">
+      <DependentUpon>TodayOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TodayOrder.aspx.designer.cs">
+      <DependentUpon>TodayOrder.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AlgorithmResult.aspx.cs">
+      <DependentUpon>AlgorithmResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AlgorithmResult.aspx.designer.cs">
+      <DependentUpon>AlgorithmResult.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm5.aspx.cs">
       <DependentUpon>WebForm5.aspx</DependentUpon>
@@ -819,6 +895,9 @@
     <Content Include="bin\roslyn\vbc.rsp" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
     <Content Include="LICENSE" />
+    <Content Include="libman.json" />
+    <Content Include="GoogleMapHandler.ashx" />
+    <Content Include="GoogleMapHandler2.ashx" />
     <None Include="packages.config" />
     <Content Include="README.md" />
     <Content Include="Site1.Master" />

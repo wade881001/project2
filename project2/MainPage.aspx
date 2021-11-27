@@ -1,18 +1,21 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="WebForm5.aspx.cs" Inherits="_0225.WebForm5" %>
+﻿<%@ Page Title="首頁" Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="WebForm5.aspx.cs" Inherits="_0225.WebForm5" %>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <head>
-    <title>首頁</title>
-</head>
-    <html>
-    <style type="text/css" media="screen">
+   <html xmlns="http://www.w3.org/1999/xhtml">
+
+   
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    
+
+     <style type="text/css" media="screen">
+       
     html {
         height: 100%;
         width: 100%;
     }
 
-    #map {
+    #map_canvas {
         position: absolute;
         top: 25%;
         left: 0;
@@ -28,35 +31,82 @@
         left: 0;
     }
     </style>
-    
 
-<body>
+     
+     
     <div class="body">
-        <h1>King Tzeng的鐵人地圖</h1>
-        <div id="map"></div>
-    </div>
+        
+        <div id="map_canvas"></div>
+   
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>
+    <script type="text/javascript">
+        function AddMark(map) {
+            //用jQuery的Ajax，向GoogleMapHandler.ashx要求座標資料
+            //更多用法請看jQuery API
+            $.ajax({
+                url: '/GoogleMapHandler.ashx',
+                type: 'GET',
+                data: { key: $('#map_key').val() },
+                dataType: 'json',
+                success: function (data, textStatus) {
+                    for (var item in data) {
+                        
+                        //建立經緯度座標
+                        /* switch (data[item].type) {
+                             case "迴轉":
+                                 var imageUrl = "./photo.png";
+                                 break;
+                             case "外帶":
+                                 var imageUrl = "./photo2.png";
+                                 break;
+                             case "定食":
+                                 var imageUrl = "./photo3.png";
+                                 break;
+                             default:
+                                 var imageUrl = "./photo.png";
+                                 break;
+                         }
+                         */
+
+                        var myLatlng = new google.maps.LatLng(data[item].Lat, data[item].Lng);
+                        var imageUrl = "../assets/img/photo.png";
+                        var imageUrl1 = "../assets/img/photo1.png";
+                        //加一個Marker到map中
+                        //更多用法可看Google Map API V3
+                        var marker = new google.maps.Marker({
+                            position: myLatlng,
+                            map: map,
+                            title: data[item].Title,
+                            icon: imageUrl
+                        });
+                    }
+                    var latlng2 = new google.maps.LatLng(25.0604413, 121.3698009);
+                    var marker2 = new google.maps.Marker({
+                        position: latlng2,
+                        map: map,
+                        title: "",
+                        icon: imageUrl1
+                    });
+                }
+            });
+        }
+
         function initMap() {
-            var Station_latlng = { lat: 25.046891, lng: 121.516602 }; // 台北車站的經緯度
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 14, //放大的倍率
-                center: Station_latlng //初始化的地圖中心位置
-            });
-
-            //--------下面是呼叫一個新marker------
-
-            var marker = new google.maps.Marker({
-                position: Station_latlng, //marker的放置位置
-                map: map //這邊的map指的是第四行的map變數
-            });
+            var latlng = new google.maps.LatLng(25.0604413, 121.3698009);
+            var myOptions = {
+                zoom: 14,
+                center: latlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+            AddMark(map);
 
         }
     </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_Za7RqKvUuEg2Nln0EcpUVN3k2fZtDuE&callback=initMap">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQqQX0ZMBFwCB0LdYlViS56DJnNR7pVoc&callback=initMap">
     </script>
-</body>
+        </div>
 
 </html>
-
 </asp:Content>

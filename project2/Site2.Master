@@ -107,7 +107,7 @@
 								<span>
                     <asp:Label ID="Label2" runat="server"  ></asp:Label>								
 									<asp:Label ID="Label3" runat="server"></asp:Label>
-									<span class="caret"></span>
+									
 								</span>
 								
 							
@@ -144,18 +144,13 @@
 							<a data-toggle="collapse" href="#tables">
 								<i class="fas fa-table"></i>
 								<p>基本資料維護</p>
-								<span class="caret"></span>
+								
 							</a>
-							<div class="collapse " id="tables">
+							<div class="collapse show" id="tables">
 								<ul class="nav nav-collapse">
 									<li>
 										<a href="Employee.aspx">
 											<span class="sub-item">人員管理系統</span>
-										</a>
-									</li>
-									<li>
-									<a href="Product.aspx">
-											<span class="sub-item">產品管理系統</span>
 										</a>
 									</li>
 									<li>
@@ -181,9 +176,9 @@
 							<a data-toggle="collapse" href="#charts">
 								<i class="far fa-chart-bar"></i>
 								<p>物流管理</p>
-								<span class="caret"></span>
+								
 							</a>
-							<div class="collapse" id="charts">
+							<div class="collapse show" id="charts">
 								<ul class="nav nav-collapse">
 									<li>
 										<a href="Import.aspx">
@@ -191,17 +186,17 @@
 										</a>
 									</li>
 									<li>
-										<a href="charts/sparkline.html">
+										<a href="Maintain.aspx">
 											<span class="sub-item">訂單維護</span>
 										</a>
 									</li>
 									<li>
-										<a href="charts/sparkline.html">
+										<a href="CarDistribute.aspx">
 											<span class="sub-item">物流配車</span>
 										</a>
 									</li>
 									<li>
-										<a href="charts/sparkline.html">
+										<a href="Report.aspx">
 											<span class="sub-item">報表管理</span>
 										</a>
 									</li>

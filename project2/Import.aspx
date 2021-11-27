@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="Import.aspx.cs" Inherits="WebApplication1.WebForm1" %>
+﻿<%@ Page Title="訂單匯入" Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="Import.aspx.cs" Inherits="WebApplication1.WebForm1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 	 <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../../assets/css/azzara.min.css">
@@ -9,6 +9,12 @@
 <head>
     <title>訂單匯入</title>
 </head>
+<div id="divProgress" style="text-align:center; display: none; position: fixed; top: 50%;  left: 50%;" >
+    <asp:Image ID="imgLoading" runat="server" ImageUrl="~/assets/img/loading.gif" />
+    <br />
+    <font color="#1B3563" size="20px">匯入作業進行中</font>
+</div>
+<asp:HiddenField ID="HiddenField1" runat="server" />
  <div class="main-panel">
 			<div class="content">
 				<div class="page-inner">
@@ -36,20 +42,25 @@
 					</div>
                     
 
-                    <div class="card card-round" style="width:1200px;left:3%">
+                    <div class="card card-round" style="width:800px;left:3%">
 								<div class="card-body">
 									<div class="card-title fw-mediumbold">訂單匯入</div>
 									<div class="card-list">
 										<div class="item-list">
 											
 											<div class="info-user ml-3">
-												<div class="username">請匯入指定格式Excel檔</div>
+												<div class="username">請匯入指定格式Excel檔
+                                                </div>
 												<div class="status">ex：test.xls、practice.xlsx</div>
 											</div>
+											<div class="info-user ml-3">
+												<div class="status">訂單欄位請依照編號/物流箱種類(2列)/數量/店家依次排序
+											</div>
+												</div>
 											<div class="card-footer">
 											<asp:FileUpload ID="FileUpload1" runat="server" CssClass="btn btn-light btn-block"/>	
 										</div>
-											<asp:Button ID="Button1" runat="server" OnClick="Button1_Click"  class="btn btn-default" Text="匯入"/>
+											<asp:Button ID="Button1" runat="server" OnClick="Button1_Click"  class="btn btn-default" Text="匯入" OnClientClick="ShowProgressBar();"/>
 											</div>
 									</div>
 								</div>
@@ -77,7 +88,36 @@
 	<script src="../../assets/js/ready.min.js"></script>
 	<!-- Azzara DEMO methods, don't include it in your project! -->
 	<script src="../../assets/js/setting-demo.js"></script>
+	<script>
+	function ShowProgressBar() {
+    displayProgress();
+    displayMaskFrame();
+}
 
+// 隱藏讀取遮罩
+function HideProgressBar() {
+    var progress = $('#divProgress');
+    var maskFrame = $("#divMaskFrame");
+    progress.hide();
+    maskFrame.hide();
+}
+// 顯示讀取畫面
+function displayProgress() {
+    var w = $(document).width();
+    var h = $(window).height();
+    var progress = $('#divProgress');
+    progress.css({ "z-index": 999999, "top": (h / 2) - (progress.height() / 2), "left": (w / 2) - (progress.width() / 2) });
+    progress.show();
+}
+// 顯示遮罩畫面
+function displayMaskFrame() {
+    var w = $(window).width();
+    var h = $(document).height();
+    var maskFrame = $("#divMaskFrame");
+    maskFrame.css({ "z-index": 999998, "opacity": 0.7, "width": w, "height": h });
+    maskFrame.show();
+		}
+        </script>
 	<script >
         $(document).ready(function () {
             $('#basic-datatables').DataTable({

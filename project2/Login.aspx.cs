@@ -20,7 +20,7 @@ namespace _0225
         protected void Iscorrect_Click(object sender, EventArgs e)
         {
          
-              SqlConnection Conn = new SqlConnection("Data Source=LAPTOP-MVSLPF8J\\SQLEXPRESS;Initial Catalog=test;user id=sa2;password=wade881001");
+            SqlConnection Conn = new SqlConnection("Data Source=59.124.220.17\\SQL2008,5857;Initial Catalog=test;user id=student;password=Aa123");
             Conn.Open();
             SqlDataReader dr = null;
             SqlCommand cmd = new SqlCommand("Select * From dbo.Employee Where [account]=@acc  and [password]=@pwd ", Conn);
