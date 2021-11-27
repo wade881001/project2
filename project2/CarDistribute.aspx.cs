@@ -153,7 +153,7 @@ namespace project2
             SqlCommand myCommand87 = new SqlCommand(deleteOld, mydata);
             SqlDataReader deletePre = myCommand87.ExecuteReader();
             deletePre.Close();
-            //抓取店家和其預備需求
+            //抓取店家和其預備的需求
             String callStore = @"Select * from dbo.Demand_di";
             SqlCommand myCommand88 = new SqlCommand(callStore, mydata);
             SqlDataReader storeCaller = myCommand88.ExecuteReader();
